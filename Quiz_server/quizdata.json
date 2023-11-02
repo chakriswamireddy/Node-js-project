@@ -1,0 +1,102 @@
+[
+    {
+        "question": "How many spaces are there on a standard Monopoly board?",
+        "options": [
+            "36",
+            "28",
+            "40",
+            "55"
+        ],
+        "answer": "40"
+    },
+    {
+        "question": "What's the Team Fortress 2 Scout's city of origin?",
+        "options": [
+            "Detroit",
+            "New York",
+            "Sydney",
+            "Boston"
+        ],
+        "answer": "Boston"
+    },
+    {
+        "question": "Who was the Prime Minister of Japan when Japan declared war on the US?",
+        "options": [
+            "Isoroku Yamamoto",
+            "Fumimaro Konoe",
+            "Michinomiya Hirohito",
+            "Hideki Tojo"
+        ],
+        "answer": "Hideki Tojo"
+    },
+    {
+        "question": "What is the default alias that Princess Garnet goes by in Final Fantasy IX?",
+        "options": [
+            "Dirk",
+            "Garnet",
+            "Quina",
+            "Dagger"
+        ],
+        "answer": "Dagger"
+    },
+    {
+        "question": "How was Socrates executed?",
+        "options": [
+            "Decapitation",
+            "Poison",
+            "Crucifixion",
+            "Firing squad"
+        ],
+        "answer": "Poison"
+    },
+    {
+        "question": "Who turns out to be the true victor in the Battle of Armageddon in Mortal Kombat?",
+        "options": [
+            "Liu Kang",
+            "Shang Tsung",
+            "Raiden",
+            "Shao Kahn"
+        ],
+        "answer": "Shao Kahn"
+    },
+    {
+        "question": "Who performed &quot;I Took A Pill In Ibiza&quot;?",
+        "options": [
+            "Harry Styles",
+            "Mike Posner",
+            "Avicii",
+            "Robbie Williams"
+        ],
+        "answer": "Mike Posner"
+    },
+    {
+        "question": "What is the full first name of the babysitter in Calvin and Hobbes?",
+        "options": [
+            "Rose",
+            "Rosalyn",
+            "Ruby",
+            "Rachel"
+        ],
+        "answer": "Rosalyn"
+    },
+    {
+        "question": "Abolitionist John Brown raided the arsenal in which Virginia Town?",
+        "options": [
+            "Harrisonburg",
+            "Richmond",
+            "Martinsburg",
+            "Harper's Ferry"
+        ],
+        "answer": "Harper's Ferry"
+    },
+    {
+        "question": "What historical time period was the center of the Assassin&rsquo;s Creed movie (2016)?",
+        "options": [
+            "French Revolution",
+            "Spanish Inquisition",
+            "Colonial America",
+            "Victorian England"
+        ],
+        "answer": "Spanish Inquisition"
+    }
+]
