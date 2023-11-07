@@ -2,7 +2,7 @@
 
 const { MongoClient } = require('mongodb');
 
-const mongoURL = 'mongodb://127.0.0.1:27017/users-database'; 
+const mongoURL = 'mongodb+srv://iamthechakri:mRt7qoP6fTmGOG5E@mymongodb.ziepkjw.mongodb.net/users-database?retryWrites=true&w=majority'; 
 
 let db; 
 
