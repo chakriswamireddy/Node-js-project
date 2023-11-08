@@ -6,6 +6,7 @@ const cors = require('cors');
 
 const usersRouter = require('./routes/users');
 const userByIdRouter = require('./routes/userById')
+const teamsRouter = require('./routes/teams')
 
 
 const app = express();
@@ -22,6 +23,8 @@ app.use(bodyParser.json());
 app.use('/api/users', usersRouter);
 
 app.use('/api/users', userByIdRouter );
+
+app.use('/api/team',teamsRouter)
 
 
 
