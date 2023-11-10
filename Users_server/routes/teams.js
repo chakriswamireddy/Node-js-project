@@ -23,10 +23,11 @@ router.post('/', async (req, res) => {
             let found = false;
         
             teams.forEach(element => {
-                if (element.domain === user.domain) {
-                    if (element.available === user.available) {
-                        found = true;
-                    }
+                if ((element.domain === user.domain) || ( ! user.available )) {
+                    found = true;
+                    // if (element.available === user.available) {
+                    //     found = true;
+                    // }
                 }
             });
         

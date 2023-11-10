@@ -17,9 +17,8 @@ router.get('/', async (req, res) => {
 
     const usersCollection = db.collection('users');
 
-    // const users = await usersCollection.find({}).skip(skip).limit(limit).toArray();
 
-       // Get the search query parameter from the URL
+
        const searchName = req.query.name || '' ;
 
        const available = req.query.available || '' ;
@@ -28,13 +27,12 @@ router.get('/', async (req, res) => {
        const domain = req.query.domain || '';
 
 
-       // Create a query object to filter by name
-      //  http://localhost:3000/api/users?name=d
+
        const query = {
-        $or: [
-          { first_name: { $regex: searchName, $options: 'i' } },
-          { last_name: { $regex: searchName, $options: 'i' } }
-        ],
+        // $or: [
+        //   { first_name: { $regex: searchName, $options: 'i' } },
+        //   { last_name: { $regex: searchName, $options: 'i' } }
+        // ],
 
       };
 
@@ -50,21 +48,36 @@ router.get('/', async (req, res) => {
 
 
    
-       // Query the database with skip, limit, and the name filter
-       const users = await usersCollection.find(query).skip(skip).limit(limit).toArray();
+
+    const users = await usersCollection.find(query).skip(skip).limit(limit).toArray();
+
+
+    const searchNameLowerCase = searchName.toLowerCase();
+
+    const filteredUsers = users.filter(user => {
+      const firstNameLowerCase = user.first_name.toLowerCase();
+      const lastNameLowerCase = user.last_name.toLowerCase();
+    
+      return firstNameLowerCase.includes(searchNameLowerCase) || lastNameLowerCase.includes(searchNameLowerCase);
+    });
+
+
+
+
+
 
     const totalUsers = await usersCollection.countDocuments();
 
 
     res.json({
-      users,
+      filteredUsers,
       totalUsers,
       page,
       limit,
   });
   } catch (err) {
     console.error(err);
-    console.log(getDB())
+    // console.log(getDB())
     res.status(500).json({ error: 'Internal Server Error' });
   }
 });
