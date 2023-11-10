@@ -49,12 +49,12 @@ router.get('/', async (req, res) => {
 
    
 
-    const users = await usersCollection.find(query).skip(skip).limit(limit).toArray();
+    const filteredUsers = await usersCollection.find(query).skip(skip).limit(limit).toArray();
 
 
     const searchNameLowerCase = searchName.toLowerCase();
 
-    const filteredUsers = users.filter(user => {
+    const users = filteredUsers.filter(user => {
       const firstNameLowerCase = user.first_name.toLowerCase();
       const lastNameLowerCase = user.last_name.toLowerCase();
     
@@ -70,7 +70,7 @@ router.get('/', async (req, res) => {
 
 
     res.json({
-      filteredUsers,
+      users,
       totalUsers,
       page,
       limit,
