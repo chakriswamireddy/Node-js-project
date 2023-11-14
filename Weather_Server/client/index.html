@@ -38,7 +38,7 @@
                     citiesList.push(input.value);
                 }
             }
-            await axios.post('http://localhost:8000/getWeather', { cities: citiesList })
+            await axios.post('https://server4weather.onrender.com/getWeather', { cities: citiesList })
                 .then(response => {
                     console.log(response.data);
 

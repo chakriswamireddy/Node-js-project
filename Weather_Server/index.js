@@ -13,7 +13,7 @@ app.use(express.json());
 app.use('/getWeather',weatherRouter)
 
 app.get('/', (req, res) => {
-  res.send('Hello, World!');
+  res.send('post method for /getWeather to get weathe by cities list!');
 });
 
 
