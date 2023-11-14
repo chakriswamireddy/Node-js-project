@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather</title>
+    <script src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+
+    <script>
+
+
+        let count = 0; 
+
+
+
+
+        const newCity = () => {
+            count++;
+            var inputElement = document.createElement('input');
+            inputElement.placeholder = 'Enter City';
+            inputElement.id = 'input-' + count;
+            document.getElementById('input-box').appendChild(inputElement);
+        };
+
+
+        const addAllCites = async () => {
+
+            let weatherList = [];
+            const citiesList = [];
+            for (let i = 0; i <= count; i++) {
+                const input = document.getElementById('input-' + i);
+                if (input && input.value) {
+                    citiesList.push(input.value);
+                }
+            }
+            await axios.post('http://localhost:8000/getWeather', { cities: citiesList })
+                .then(response => {
+                    console.log(response.data);
+
+                    if (typeof response.data.weather === 'object' && response.data.weather !== null) {
+                       
+                        weatherList = Object.values(response.data.weather);
+                    } else {
+                        console.error('Weather data is not iterable');
+                        return; 
+                    }
+                    
+
+
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+
+                });
+
+            var resultsBox = document.getElementById('results');
+
+            for (let i = 0; i < weatherList.length ; i++) {
+                var resultbar = document.createElement('p')
+                resultbar.textContent = citiesList[i] + " : " + weatherList[i]
+                resultsBox.appendChild(resultbar)
+            }
+        };
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <div id="input-box">
+            <input type="text" placeholder="Enter City" id="input-0">
+
+        </div>
+        <button onclick="newCity()">Add City</button>
+
+
+
+        <div>
+            <button onclick="addAllCites()">Get Weather</button>
+        </div>
+    </div>
+    <div id="results">
+        <h2>Results are</h2>
+
+    </div>
+</body>
+
+</html>

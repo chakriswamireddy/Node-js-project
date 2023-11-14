@@ -1,8 +1,11 @@
 const express = require('express')
 const app = express();
+const cors = require('cors');
 const port = 8000;
 
 const weatherRouter = require('./routes/weather')
+
+app.use(cors());
 
 app.use(express.json());
 
