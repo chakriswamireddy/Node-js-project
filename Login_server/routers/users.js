@@ -1,7 +1,6 @@
 const express = require('express');
 const router = express.Router();
 const { getDB } = require('../database');
-const { get } = require('mongoose');
 
 
 // login the user
